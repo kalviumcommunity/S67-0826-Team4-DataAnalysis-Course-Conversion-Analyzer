@@ -1,0 +1,9 @@
+course_id,course_name,category,price,rating,views,preview_clicks,enrollments
+C001,Python for Beginners,Programming,999,4.6,15000,7200,1200
+C002,Advanced Python,Programming,2999,3.7,21000,6500,280
+C003,Data Science with Python,Data Science,2499,3.9,18000,5500,350
+C004,UI Design Basics,Design,799,4.7,4500,2500,600
+C005,Digital Marketing,Marketing,1299,4.0,3500,1200,150
+C006,Advanced Business Analytics,Business,3499,4.2,11000,4000,450
+C007,React Web Development,Web Development,1499,2.8,13000,6000,700
+C008,Full Stack Development,Web Development,1999,4.8,17000,8500,1400
