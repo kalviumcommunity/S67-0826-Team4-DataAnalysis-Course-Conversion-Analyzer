@@ -14,3 +14,15 @@ print(df.columns.tolist())
 
 print("\n--- DATA TYPES ---")
 print(df.dtypes)
+
+print("\n--- MISSING VALUES ---")
+print(df.isnull().sum())
+
+print("\n--- DUPLICATE ROWS ---")
+print("Duplicates:", df.duplicated().sum())
+
+print("\n--- UNIQUE COURSE IDs ---")
+print("Unique IDs:", df["course_id"].nunique())
+
+print("\n--- INVALID RATINGS ---")
+print(df[(df["rating"] < 1) | (df["rating"] > 5)])
