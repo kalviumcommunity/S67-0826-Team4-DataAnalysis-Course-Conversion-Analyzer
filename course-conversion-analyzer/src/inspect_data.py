@@ -26,3 +26,18 @@ print("Unique IDs:", df["course_id"].nunique())
 
 print("\n--- INVALID RATINGS ---")
 print(df[(df["rating"] < 1) | (df["rating"] > 5)])
+
+print("\n--- NEGATIVE PRICES ---")
+print(df[df["price"] < 0])
+
+print("\n--- NEGATIVE VIEWS ---")
+print(df[df["views"] < 0])
+
+print("\n--- PREVIEW CLICKS > VIEWS ---")
+print(df[df["preview_clicks"] > df["views"]])
+
+print("\n--- ENROLLMENTS > PREVIEW CLICKS ---")
+print(df[df["enrollments"] > df["preview_clicks"]])
+
+print("\n--- STATISTICAL SUMMARY ---")
+print(df.describe())
