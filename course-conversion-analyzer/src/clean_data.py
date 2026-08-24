@@ -25,3 +25,18 @@ df = df.dropna(subset=["course_id", "course_name", "category"])
 # Remove completely duplicated rows
 print("\nDuplicates before:", df.duplicated().sum())
 df = df.drop_duplicates()
+
+# Remove duplicate course IDs
+if df["course_id"].duplicated().sum() > 0:
+    df = df.drop_duplicates(subset="course_id", keep="first")
+
+# Standardize categories
+category_mapping = {
+    "programming": "Programming",
+    "data science": "Data Science",
+    "web development": "Web Development",
+    "business": "Business",
+    "design": "Design",
+    "marketing": "Marketing",
+}
+df["category"] = df["category"].replace(category_mapping)
