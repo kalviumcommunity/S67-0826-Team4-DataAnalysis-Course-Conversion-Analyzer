@@ -40,3 +40,16 @@ category_mapping = {
     "marketing": "Marketing",
 }
 df["category"] = df["category"].replace(category_mapping)
+
+# Convert numeric columns
+numeric_columns = ["price", "rating", "views", "preview_clicks", "enrollments"]
+for column in numeric_columns:
+    df[column] = pd.to_numeric(df[column], errors="coerce")
+
+# Fill missing numeric values with the median of each column
+for column in numeric_columns:
+    df[column] = df[column].fillna(df[column].median())
+
+# Fix invalid prices
+price_median = df.loc[df["price"] >= 0, "price"].median()
+df.loc[df["price"] < 0, "price"] = price_median
