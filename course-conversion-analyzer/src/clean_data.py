@@ -53,3 +53,20 @@ for column in numeric_columns:
 # Fix invalid prices
 price_median = df.loc[df["price"] >= 0, "price"].median()
 df.loc[df["price"] < 0, "price"] = price_median
+
+# Fix invalid ratings
+rating_median = df.loc[df["rating"].between(1, 5), "rating"].median()
+invalid_ratings = ~df["rating"].between(1, 5)
+df.loc[invalid_ratings, "rating"] = rating_median
+
+# Fix invalid views
+views_median = df.loc[df["views"] >= 0, "views"].median()
+df.loc[df["views"] < 0, "views"] = views_median
+
+# Fix invalid preview clicks
+df.loc[df["preview_clicks"] < 0, "preview_clicks"] = 0
+df["preview_clicks"] = df[["preview_clicks", "views"]].min(axis=1)
+
+# Fix invalid enrollments
+df.loc[df["enrollments"] < 0, "enrollments"] = 0
+df["enrollments"] = df[["enrollments", "preview_clicks"]].min(axis=1)
