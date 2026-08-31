@@ -70,3 +70,28 @@ df["preview_clicks"] = df[["preview_clicks", "views"]].min(axis=1)
 # Fix invalid enrollments
 df.loc[df["enrollments"] < 0, "enrollments"] = 0
 df["enrollments"] = df[["enrollments", "preview_clicks"]].min(axis=1)
+
+print("\n--- FINAL VALIDATION ---")
+print("Rows:", len(df))
+print("Columns:", len(df.columns))
+print("\nMissing values:")
+print(df.isnull().sum())
+print("\nDuplicate rows:")
+print(df.duplicated().sum())
+print("\nDuplicate course IDs:")
+print(df["course_id"].duplicated().sum())
+print("\nInvalid ratings:")
+print(df[(df["rating"] < 1) | (df["rating"] > 5)])
+print("\nNegative prices:")
+print(df[df["price"] < 0])
+print("\nNegative views:")
+print(df[df["views"] < 0])
+print("\nPreview clicks greater than views:")
+print(df[df["preview_clicks"] > df["views"]])
+print("\nEnrollments greater than preview clicks:")
+print(df[df["enrollments"] > df["preview_clicks"]])
+
+df.to_csv("data/cleaned_courses.csv", index=False)
+
+print("\nCleaning complete.")
+print("Saved to: data/cleaned_courses.csv")
