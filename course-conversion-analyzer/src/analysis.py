@@ -74,3 +74,23 @@ comparison = pd.DataFrame(
         ].mean(),
     }
 )
+
+print("\n--- PROBLEM COURSES VS OTHER COURSES ---")
+print(comparison)
+
+category_analysis = df.groupby("category").agg(
+    average_views=("views", "mean"),
+    average_conversion=("conversion_rate", "mean"),
+    average_price=("price", "mean"),
+    average_rating=("rating", "mean"),
+    course_count=("course_name", "count"),
+)
+
+print("\n--- CATEGORY ANALYSIS ---")
+print(category_analysis)
+
+problem_avg = problem_courses["conversion_rate"].mean()
+other_avg = other_courses["conversion_rate"].mean()
+conversion_difference = np.round(other_avg - problem_avg, 4)
+
+print("\nConversion difference:", conversion_difference)
