@@ -1,0 +1,14 @@
+Finding 1:
+The high-view, low-conversion courses have a much lower average conversion rate than the other courses in the dataset (about 0.0164 vs 0.0722).
+
+Finding 2:
+The high-view, low-conversion courses also have a higher average price than the other courses (about 2749 vs 1682.33).
+
+Finding 3:
+The problematic courses have a lower average rating than the rest of the dataset (about 3.80 vs 4.1833).
+
+Finding 4:
+Preview-to-enrollment conversion is substantially lower for the problematic courses than for the other courses (about 0.0534 vs 0.1543).
+
+Note:
+These are associations observed in a very small dataset, not proof of causation.
