@@ -94,3 +94,20 @@ other_avg = other_courses["conversion_rate"].mean()
 conversion_difference = np.round(other_avg - problem_avg, 4)
 
 print("\nConversion difference:", conversion_difference)
+
+print("\n========== ANALYSIS SUMMARY ==========")
+print("\nMost viewed courses:")
+print(df.nlargest(3, "views")[["course_name", "views", "conversion_rate"]])
+
+print("\nLowest conversion courses:")
+print(df.nsmallest(3, "conversion_rate")[["course_name", "views", "conversion_rate"]])
+
+print("\nHigh-view / low-conversion courses:")
+print(
+    problem_courses[
+        ["course_name", "category", "price", "rating", "views", "conversion_rate"]
+    ]
+)
+
+print("\nProblem courses vs other courses:")
+print(comparison)
