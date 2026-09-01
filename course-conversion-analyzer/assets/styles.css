@@ -1,0 +1,404 @@
+/* ==========================================
+   Theme Variables & Master Tokens
+   ========================================== */
+
+/* Dark Theme Variables */
+.stApp:has(.theme-sentinel[data-theme="dark"]),
+html[data-theme="dark"],
+[data-theme="dark"] {
+    --bg-primary: #0E1117;
+    --bg-secondary: #161B22;
+    --bg-tertiary: #1F242D;
+    --text-primary: #F0F6FC;
+    --text-secondary: #8B949E;
+    --text-muted: #6E7681;
+    --accent: #FF6B4A;
+    --accent-hover: #FF856B;
+    --accent-soft: rgba(255, 107, 74, 0.15);
+    --border: #30363D;
+    --card-bg: #161B22;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    --good: #4ADE80;
+    --bad: #F87171;
+    --input-bg: #161B22;
+    --input-border: #30363D;
+    --code-bg: #1F242D;
+    --code-text: #4ADE80;
+}
+
+/* Light Theme Variables - Soft, Balanced & Professional Slate */
+.stApp:has(.theme-sentinel[data-theme="light"]),
+html[data-theme="light"],
+[data-theme="light"] {
+    --bg-primary: #F8FAFC;
+    --bg-secondary: #FFFFFF;
+    --bg-tertiary: #F1F5F9;
+    --text-primary: #1E293B;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+    --accent: #E0533C;
+    --accent-hover: #C83B1B;
+    --accent-soft: rgba(224, 83, 60, 0.10);
+    --border: #CBD5E1;
+    --card-bg: #FFFFFF;
+    --card-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+    --good: #16A34A;
+    --bad: #DC2626;
+    --input-bg: #FFFFFF;
+    --input-border: #CBD5E1;
+    --code-bg: #F1F5F9;
+    --code-text: #0F172A;
+}
+
+/* ==========================================
+   Page & Base Elements Styling
+   ========================================== */
+
+.stApp {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Typography Overrides for Balanced Contrast */
+.stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6,
+.stApp p, .stApp label, .stApp span, .stApp div, .stApp li,
+.stMarkdown, .stMarkdown p, .stMarkdown span {
+    color: var(--text-primary);
+}
+
+.stApp h1 {
+    color: var(--text-primary) !important;
+    font-weight: 700;
+}
+
+.stApp header[data-testid="stHeader"] {
+    background-color: transparent !important;
+}
+
+/* Horizontal Rule */
+.stApp hr {
+    border-color: var(--border) !important;
+}
+
+/* Inline Code Elements */
+.stMarkdown code, code, tt {
+    background-color: var(--code-bg) !important;
+    color: var(--code-text) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 5px !important;
+    padding: 2px 6px !important;
+    font-size: 0.88em !important;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+}
+
+/* ==========================================
+   Custom Component Styles
+   ========================================== */
+
+/* Hero KPI cards */
+.kpi-card {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px;
+    padding: 20px 24px;
+    height: 100%;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.kpi-card:hover {
+    transform: translateY(-2px);
+}
+.kpi-label {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary) !important;
+    margin-bottom: 6px;
+}
+.kpi-value {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--text-primary) !important;
+}
+.kpi-sub {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary) !important;
+    margin-top: 6px;
+}
+
+/* Section header with icon */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+.section-header .icon {
+    font-size: 22px;
+}
+.section-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary) !important;
+}
+
+/* Chart caption */
+.chart-caption {
+    color: var(--text-secondary) !important;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+/* Glossary term */
+.glossary-term {
+    color: var(--accent) !important;
+    font-weight: 700;
+}
+
+/* Theme toggle button */
+div[data-testid="stButton"] button {
+    border-radius: 20px !important;
+    border: 1px solid var(--border) !important;
+    background: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+    padding: 0.4rem 1rem !important;
+    box-shadow: var(--card-shadow) !important;
+    transition: all 0.2s ease-in-out !important;
+}
+div[data-testid="stButton"] button:hover {
+    border-color: var(--accent) !important;
+    color: var(--accent) !important;
+    transform: scale(1.02);
+}
+
+/* ==========================================
+   Streamlit Native Controls Overrides
+   ========================================== */
+
+/* Selectbox Dropdown Styling */
+.stSelectbox label {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+}
+div[data-baseweb="select"] > div {
+    background-color: var(--input-bg) !important;
+    border-color: var(--input-border) !important;
+    color: var(--text-primary) !important;
+    border-radius: 8px !important;
+}
+div[data-baseweb="select"] span {
+    color: var(--text-primary) !important;
+    font-weight: 500 !important;
+}
+/* BaseWeb Popover / Dropdown Menu Options */
+div[data-baseweb="popover"],
+div[data-baseweb="menu"],
+ul[role="listbox"] {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    box-shadow: var(--card-shadow) !important;
+}
+div[role="option"],
+li[role="option"] {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    font-weight: 500 !important;
+}
+div[role="option"]:hover,
+li[role="option"]:hover,
+div[aria-selected="true"] {
+    background-color: var(--bg-tertiary) !important;
+    color: var(--accent) !important;
+}
+
+/* Slider Controls */
+.stSlider label {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+}
+div[data-testid="stSlider"] [data-baseweb="slider"] {
+    color: var(--text-primary) !important;
+}
+div[data-testid="stSlider"] div[data-testid="stTickBar"] span,
+div[data-testid="stSlider"] div[data-testid="stMarkdownContainer"] p {
+    color: var(--text-secondary) !important;
+    font-weight: 600 !important;
+}
+
+/* Expander Component & Header Overrides */
+div[data-testid="stExpander"] {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 10px !important;
+    box-shadow: var(--card-shadow) !important;
+    overflow: hidden !important;
+}
+
+div[data-testid="stExpander"] summary,
+div[data-testid="stExpander"] details summary,
+div[data-testid="stExpander"] [data-testid="stExpanderSummary"] {
+    background-color: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+    padding: 10px 16px !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+div[data-testid="stExpander"] summary:hover,
+div[data-testid="stExpander"] details summary:hover {
+    color: var(--accent) !important;
+}
+
+div[data-testid="stExpander"] div[data-testid="stExpanderDetails"] {
+    padding: 16px !important;
+    background-color: var(--card-bg) !important;
+}
+
+/* Metric Widget Styling */
+div[data-testid="stMetric"] {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 10px !important;
+    padding: 14px 18px !important;
+    box-shadow: var(--card-shadow) !important;
+}
+div[data-testid="stMetricLabel"] {
+    color: var(--text-secondary) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+}
+div[data-testid="stMetricValue"] {
+    color: var(--text-primary) !important;
+    font-weight: 700 !important;
+}
+div[data-testid="stMetricDelta"] {
+    color: var(--text-secondary) !important;
+    font-weight: 600 !important;
+}
+
+/* Alerts / Info Boxes */
+div[data-testid="stAlert"] {
+    background-color: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 10px !important;
+}
+div[data-testid="stAlert"] p {
+    color: var(--text-primary) !important;
+}
+
+/* ==========================================
+   Dataframe & Element Toolbar Overrides
+   ========================================== */
+
+/* Floating Element Toolbar */
+div[data-testid="stElementToolbar"],
+[data-testid="stElementToolbar"],
+[data-testid="stDataFrameToolbar"] {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    box-shadow: var(--card-shadow) !important;
+    padding: 2px 6px !important;
+}
+
+div[data-testid="stElementToolbar"] button,
+[data-testid="stElementToolbar"] button,
+div[data-testid="stElementToolbar"] span,
+div[data-testid="stElementToolbar"] p,
+div[data-testid="stElementToolbar"] svg,
+[data-testid="stElementToolbar"] button svg {
+    color: var(--text-primary) !important;
+    fill: var(--text-primary) !important;
+    stroke: var(--text-primary) !important;
+}
+
+div[data-testid="stElementToolbar"] button:hover,
+[data-testid="stElementToolbar"] button:hover {
+    background-color: var(--bg-tertiary) !important;
+}
+
+div[data-testid="stElementToolbar"] button:hover svg,
+[data-testid="stElementToolbar"] button:hover svg {
+    fill: var(--accent) !important;
+    stroke: var(--accent) !important;
+}
+
+/* Clean Framed Border Dataframe Container & Table Headers */
+div[data-testid="stDataFrame"],
+[data-testid="stDataFrame"] {
+    border: 1px solid var(--border) !important;
+    border-radius: 10px !important;
+    background-color: var(--card-bg) !important;
+    box-shadow: var(--card-shadow) !important;
+    overflow: hidden !important;
+}
+
+div[data-testid="stDataFrame"] table,
+[data-testid="stDataFrame"] table {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    width: 100% !important;
+    background-color: var(--card-bg) !important;
+}
+
+/* Light Mode Dataframe Overrides */
+.stApp:has(.theme-sentinel[data-theme="light"]) div[data-testid="stDataFrame"] th,
+.stApp:has(.theme-sentinel[data-theme="light"]) [data-testid="stDataFrame"] th,
+.stApp:has(.theme-sentinel[data-theme="light"]) [data-testid="stDataFrame"] .col_heading,
+.stApp:has(.theme-sentinel[data-theme="light"]) [data-testid="stDataFrame"] .row_heading,
+.stApp:has(.theme-sentinel[data-theme="light"]) [data-testid="stDataFrame"] .blank,
+html[data-theme="light"] div[data-testid="stDataFrame"] th,
+[data-theme="light"] div[data-testid="stDataFrame"] th,
+[data-theme="light"] [data-testid="stDataFrame"] th {
+    background-color: #F8FAFC !important;
+    color: #475569 !important;
+    font-weight: 700 !important;
+    border-bottom: 1px solid #CBD5E1 !important;
+    border-right: 1px solid #E2E8F0 !important;
+}
+
+.stApp:has(.theme-sentinel[data-theme="light"]) div[data-testid="stDataFrame"] td,
+.stApp:has(.theme-sentinel[data-theme="light"]) [data-testid="stDataFrame"] td,
+html[data-theme="light"] div[data-testid="stDataFrame"] td,
+[data-theme="light"] div[data-testid="stDataFrame"] td,
+[data-theme="light"] [data-testid="stDataFrame"] td {
+    border-bottom: 1px solid #E2E8F0 !important;
+    border-right: 1px solid #E2E8F0 !important;
+}
+
+/* Dark Mode Dataframe Overrides */
+.stApp:has(.theme-sentinel[data-theme="dark"]) div[data-testid="stDataFrame"] th,
+.stApp:has(.theme-sentinel[data-theme="dark"]) [data-testid="stDataFrame"] th,
+.stApp:has(.theme-sentinel[data-theme="dark"]) [data-testid="stDataFrame"] .col_heading,
+.stApp:has(.theme-sentinel[data-theme="dark"]) [data-testid="stDataFrame"] .row_heading,
+.stApp:has(.theme-sentinel[data-theme="dark"]) [data-testid="stDataFrame"] .blank,
+html[data-theme="dark"] div[data-testid="stDataFrame"] th,
+[data-theme="dark"] div[data-testid="stDataFrame"] th,
+[data-theme="dark"] [data-testid="stDataFrame"] th {
+    background-color: #1F242D !important;
+    color: #8B949E !important;
+    font-weight: 700 !important;
+    border-bottom: 1px solid #30363D !important;
+    border-right: 1px solid #30363D !important;
+}
+
+.stApp:has(.theme-sentinel[data-theme="dark"]) div[data-testid="stDataFrame"] td,
+.stApp:has(.theme-sentinel[data-theme="dark"]) [data-testid="stDataFrame"] td,
+html[data-theme="dark"] div[data-testid="stDataFrame"] td,
+[data-theme="dark"] div[data-testid="stDataFrame"] td,
+[data-theme="dark"] [data-testid="stDataFrame"] td {
+    border-bottom: 1px solid #30363D !important;
+    border-right: 1px solid #30363D !important;
+}
