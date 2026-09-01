@@ -1,0 +1,9 @@
+course_id,course_name,category,price,rating,views,preview_clicks,enrollments,conversion_rate,preview_conversion,high_view_low_conversion
+C001,Python for Beginners,Programming,999,4.6,15000,7200,1200,0.08,0.1667,False
+C002,Advanced Python,Programming,2999,3.7,21000,6500,280,0.0133,0.0431,True
+C003,Data Science with Python,Data Science,2499,3.9,18000,5500,350,0.0194,0.0636,True
+C004,UI Design Basics,Design,799,4.7,4500,2500,600,0.1333,0.24,False
+C005,Digital Marketing,Marketing,1299,4.0,3500,1200,150,0.0429,0.125,False
+C006,Advanced Business Analytics,Business,3499,4.2,11000,4000,450,0.0409,0.1125,False
+C007,React Web Development,Web Development,1499,2.8,13000,6000,700,0.0538,0.1167,False
+C008,Full Stack Development,Web Development,1999,4.8,17000,8500,1400,0.0824,0.1647,False
