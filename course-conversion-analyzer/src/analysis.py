@@ -32,3 +32,20 @@ print(lowest_conversion[["course_name", "views", "enrollments", "conversion_rate
 
 problem_courses = df[df["high_view_low_conversion"]]
 other_courses = df[~df["high_view_low_conversion"]]
+
+print("\n--- HIGH-VIEW / LOW-CONVERSION COURSES ---")
+print(
+    problem_courses[
+        [
+            "course_name",
+            "category",
+            "price",
+            "rating",
+            "views",
+            "preview_clicks",
+            "enrollments",
+            "conversion_rate",
+            "preview_conversion",
+        ]
+    ]
+)
