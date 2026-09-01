@@ -49,3 +49,28 @@ print(
         ]
     ]
 )
+
+comparison = pd.DataFrame(
+    {
+        "Problem Courses": problem_courses[
+            [
+                "price",
+                "rating",
+                "views",
+                "preview_clicks",
+                "preview_conversion",
+                "conversion_rate",
+            ]
+        ].mean(),
+        "Other Courses": other_courses[
+            [
+                "price",
+                "rating",
+                "views",
+                "preview_clicks",
+                "preview_conversion",
+                "conversion_rate",
+            ]
+        ].mean(),
+    }
+)
