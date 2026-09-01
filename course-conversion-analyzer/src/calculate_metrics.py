@@ -21,3 +21,33 @@ median_conversion = df["conversion_rate"].median()
 
 print("Median views:", round(median_views, 2))
 print("Median conversion:", round(median_conversion, 4))
+
+# Identify high-view, low-conversion courses
+df["high_view_low_conversion"] = (
+    (df["views"] >= median_views) &
+    (df["conversion_rate"] <= median_conversion)
+)
+
+# Count problematic courses
+problem_courses = df["high_view_low_conversion"].sum()
+print("High-view, low-conversion courses:", problem_courses)
+
+# Display problematic courses
+print("\nHigh-view, low-conversion courses:")
+print(
+    df[df["high_view_low_conversion"]][
+        [
+            "course_id",
+            "course_name",
+            "views",
+            "enrollments",
+            "conversion_rate",
+            "preview_conversion",
+        ]
+    ]
+)
+
+# Save analyzed dataset
+df.to_csv("data/analyzed_courses.csv", index=False)
+
+print("\nSaved to: data/analyzed_courses.csv")
